@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Задачи по работе c DOM</title>
+</head>
+<body>
+
+</body>
+<script>
+    const element = document.createElement("div");
+    document.body.appendChild(element);
+
+    element.textContent="Этот элемент создан при помощи DOM API";
+    ///////////
+
+    const element2 = document.createElement("div");
+    element.appendChild(element2);
+    element2.textContent="Этот элемент тоже создан при помощи DOM API";
+
+    //////////
+    element2.classList.add("inner");
+    element2.style.color = "red";
+
+    ////////
+    const elem = document.querySelector("div");
+    elem.addEventListener("click", function () {
+        console.log("Этот текст говорит о том, что я всё сделал правильно");
+    });
+
+    /////////
+    const element5 = document.createElement("a");
+    document.body.appendChild(element5);
+
+    element5.setAttribute("href", "https://loftschool.com");
+    element5.textContent="Нажми меня";
+
+    element5.addEventListener("click", function (event) {
+        event.preventDefault();
+        console.log("Я кликнул на ссылку HREF " + element5.href);
+    });
+
+    /////////
+
+    const myInput = document.createElement("input");
+    document.body.appendChild(myInput);
+
+    const myButton = document.createElement("button");
+    document.body.appendChild(myButton);
+    myButton.textContent = "Кнопка";
+
+    myButton.addEventListener("click", function (event) {
+
+        if (myInput.value != '') {
+            console.log(myInput.value);
+        }
+        myInput.value="";
+    });
+
+</script>
+</html>
